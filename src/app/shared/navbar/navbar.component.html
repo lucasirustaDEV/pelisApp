@@ -9,8 +9,11 @@
 
         <div class="dflex">
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar película" aria-label="Search">
-                <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                <input class="form-control me-2" type="search" placeholder="Buscar película" aria-label="Search"
+                        #txtBuscar
+                        (keyup.enter)="buscarPelicula(txtBuscar.value)"
+                        >
+                <button (click)="buscarPelicula(txtBuscar.value)" class="btn btn-outline-secondary" type="submit">Buscar</button>
               </form>
         </div>
 
