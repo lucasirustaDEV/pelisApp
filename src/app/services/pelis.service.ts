@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie, PeliculasResponse } from '../interfaces/peliculas.interface';
 import { Observable, of } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
+import { MovieDetails } from '../interfaces/pelicula.interface';
+import { Cast, Credits } from '../interfaces/credits.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +55,19 @@ export class PelisService {
 
   resetPeliculasPage() {
     this.peliculasPage = 1;
+  }
+
+  getPeliculasDetalle(id: string){
+    return this.http.get<MovieDetails>(`${this.serverUrl}/movie/${id}`,{params:this.params})
+    .pipe(
+      catchError(err => of(null))
+    );
+  }
+
+  getCast(id:string):Observable<Cast[]>{
+    return this.http.get<Credits>(`${this.serverUrl}/movie/${id}/credits`,{params:this.params}).pipe(
+      map(res => res.cast),
+      catchError(err => of([]))
+    )
   }
 }

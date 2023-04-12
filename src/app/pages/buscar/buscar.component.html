@@ -1,1 +1,10 @@
-<p>buscar works!</p>
+<h1 class="text-capitalize">Buscar Películas: <small>{{texto}}</small></h1>
+<hr>
+<div class="text-center mt-5" *ngIf="noExiste">
+    <h2>No hay resultados para la búsqueda.</h2>
+</div>
+<div class="row" *ngIf="!noExiste">
+    <div class="col">
+        <app-peliculas-poster [movies]="movies"></app-peliculas-poster>
+    </div>
+</div>

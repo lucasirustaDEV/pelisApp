@@ -21,7 +21,7 @@ export class PeliculasPosterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.movies);
+    //console.log(this.movies);
   }
 
   onMovieClick(movie: Movie){

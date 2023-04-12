@@ -7,6 +7,7 @@ import { PeliculasPosterComponent } from './peliculas-poster/peliculas-poster/pe
 import { PipesModule } from '../pipes/pipes.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbPaginationModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { CastSlideShowComponent } from './cast-slide-show/cast-slide-show.component';
 
 
 
@@ -14,12 +15,14 @@ import { NgbPaginationModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap
   declarations: [
     NavbarComponent,
     SlideShowComponent,
-    PeliculasPosterComponent
+    PeliculasPosterComponent,
+    CastSlideShowComponent
   ],
   exports: [
     NavbarComponent,
     SlideShowComponent,
-    PeliculasPosterComponent
+    PeliculasPosterComponent,
+    CastSlideShowComponent
   ],
   imports: [
     CommonModule,
